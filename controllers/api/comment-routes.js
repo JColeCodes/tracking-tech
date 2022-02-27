@@ -19,4 +19,21 @@ router.post('/', (req, res) => {
         .catch(err => res.status(500).json(err));
 });
 
+// DELETE /api/comments/1
+router.put('/:id', (req, res) => {
+    Comment.destroy({
+        where: {
+            id: req.params.id
+        }
+    })
+        .then(dbUserData => {
+            if (!dbUserData) {
+                res.status(404).json({ message: 'No post found with this id' });
+                return;
+            }
+            res.json(dbUserData);
+        })
+        .catch(err => res.status(500).json(err));
+});
+
 module.exports = router;

@@ -34,7 +34,7 @@ router.get('/:id', (req, res) => {
     })
         .then(dbUserData => {
             if (!dbUserData) {
-                res.status(404).json({ message: 'There is no user found with this id' });
+                res.status(404).json({ message: 'No user found with this id' });
                 return;
             }
             res.json(dbUserData);
@@ -70,7 +70,7 @@ router.post('/login', (req, res) => {
     })
         .then(dbUserData => {
             if (!dbUserData) {
-                res.status(404).json({ message: 'There is no user found with this email' });
+                res.status(404).json({ message: 'No user found with this email' });
                 return;
             }
 
@@ -100,6 +100,41 @@ router.post('/logout', (req, res) => {
     } else {
         res.status(404).end();
     }
+});
+
+// PUT /api/users/1
+router.put('/:id', (req, res) => {
+    User.update(req.body, {
+        individualHooks: true,
+        where: {
+            id: req.params.id
+        }
+    })
+        .then(dbUserData => {
+            if (!dbUserData[0]) {
+                res.status(404).json({ message: 'No user found with this id' });
+                return;
+            }
+            res.json(dbUserData);
+        })
+        .catch(err => res.status(500).json(err));
+});
+
+// DELETE /api/users/1
+router.put('/:id', (req, res) => {
+    User.destroy({
+        where: {
+            id: req.params.id
+        }
+    })
+        .then(dbUserData => {
+            if (!dbUserData) {
+                res.status(404).json({ message: 'No user found with this id' });
+                return;
+            }
+            res.json(dbUserData);
+        })
+        .catch(err => res.status(500).json(err));
 });
 
 module.exports = router;
