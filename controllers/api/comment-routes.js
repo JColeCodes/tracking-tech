@@ -3,7 +3,7 @@ const { Comment } = require('../../models');
 
 // GET /api/comments
 router.get('/', (req, res) => {
-    User.findAll()
+    Comment.findAll()
         .then(dbCommentData => res.json(dbCommentData))
         .catch(err => res.status(500).json(err));
 });
