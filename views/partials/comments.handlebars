@@ -1,0 +1,12 @@
+<ol>
+    {{#each this}}
+    <li class="view-comment">
+        <div class="comment-author">
+            <i class="fa-solid fa-user"></i> {{user.username}} on {{created_at}}
+        </div>
+        <div class="comment-body">
+            {{comment}}
+        </div>
+    </li>
+    {{/each}}
+</ol>
