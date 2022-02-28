@@ -1,0 +1,247 @@
+:root {
+    --main-color: #FFE632;
+    --secondary-color: #F2C016;
+    --darkest-color: #1C1E1F;
+    --dark-color: #242627;
+    --mid-color: #2D3132;
+    --lightest-color: #F7FAFB;
+  }
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Rubik', sans-serif;
+    font-size: 16px;
+    line-height: 1;
+    background-color: var(--darkest-color);
+    color: var(--lightest-color);
+}
+
+a, a:hover, button, button:hover { transition: all 0.5s ease-in-out; }
+button:hover { cursor: pointer;  }
+
+a {
+    text-decoration: none;
+    color: var(--main-color);
+}
+a:hover {
+    color: var(--secondary-color);
+}
+
+ol {
+    list-style-type: none;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    min-height: 100vh;
+}
+
+/* HEADER */
+header {
+    width: 100%;
+}
+header .title {
+    padding: 30px 30px 20px;
+    margin: 0 auto;
+    max-width: 1200px; width: 100%;
+}
+header h1, header h2 {
+    font-family: 'Dosis', sans-serif;
+    font-weight: normal;
+}
+header h1 {
+    font-size: 2.8em;
+}
+header h2 {
+    text-transform: lowercase;
+    letter-spacing: 2px;
+}
+header nav {
+    background-color: var(--mid-color);
+    padding: 15px;
+    text-align: right;
+}
+header nav a, header nav button {
+    margin: 0 10px;
+}
+header nav button {
+    background: none;
+    border: none;
+    color: var(--main-color);
+    font-size: 1em;
+}
+header nav button:hover {
+    color: var(--secondary-color);
+}
+
+/* MAIN */
+main {
+    padding: 30px 30px 0;
+    flex: 1;
+}
+
+.post .title, .login-register .form-title, .comments .comment-title {
+    font-family: 'Dosis', sans-serif;
+    font-size: 1.8em;
+    color: var(--main-color);
+    margin: 0 0 20px;
+}
+
+.post {
+    margin: 0 auto 40px;
+    max-width: 1200px; width: 100%;
+}
+.post:last-of-type {
+    margin: 0 auto;
+}
+.post .title {
+    margin: 0;
+    padding: 0 0 10px;
+}
+.post .info {
+    background-color: var(--mid-color);
+    padding: 15px;
+}
+.post .content {
+    background-color: var(--dark-color);
+    padding: 25px;
+    border-bottom: 3px solid var(--mid-color);
+    line-height: 1.3;
+}
+
+/* LOGIN / REGISTER */
+.login-register {
+    position: relative;
+    overflow-x: clip;
+}
+.login-register .login-form, .login-register .register-form {
+    position: absolute;
+    top: 0; left: calc(50% - 500px); right: calc(50% - 500px);
+    background-color: var(--dark-color);
+    border: 1px solid var(--mid-color);
+    padding: 30px;
+    max-width: 500px; width: 100%;
+    margin: 0 auto;
+    transition: all 0.5s ease-in-out;
+}
+.login-register label {
+    display: block;
+    font-family: 'Dosis', sans-serif;
+    font-size: 1.1em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 500;
+    margin: 0 0 5px;
+}
+.login-register input {
+    width: 100%;
+    background-color: var(--darkest-color);
+    color: var(--lightest-color);
+    padding: 12px;
+    border: 1px solid var(--mid-color);
+    margin: 0 0 15px;
+    font-size: 1em;
+}
+.login-register .sub-text {
+    margin: 15px 0 0;
+    font-style: italic;
+}
+.login-register .sub-text button {
+    font-style: italic;
+    background: none;
+    border: none;
+    color: var(--main-color);
+    font-size: 1em;
+}
+.login-register .sub-text button:hover {
+    color: var(--secondary-color);
+}
+
+.login-register .hidden {
+    transition: all 0.5s ease-in-out;
+}
+.login-register .login-form.hidden {
+    left: -100%; right: auto;
+}
+.login-register .register-form.hidden {
+    left: auto; right: -100%;
+}
+
+/* COMMENTS */
+.comments {
+    max-width: 1200px; width: 100%;
+    margin: 0 auto;
+}
+.comments .comment-form {
+    padding: 20px;
+    background-color: var(--dark-color);
+    border: 1px solid var(--mid-color);
+    margin: 0 0 30px;
+}
+.comments .comment-form textarea {
+    background-color: var(--darkest-color);
+    border: 1px solid var(--mid-color);
+    color: var(--lightest-color);
+    width: 100%;
+    padding: 12px;
+    font-family: 'Rubik', sans-serif;
+    font-size: 1em;
+    margin: 0 0 15px;
+    height: 100px;
+    resize: none;
+}
+.comments .comment-form textarea::placeholder {
+    font-style: italic;
+}
+.comments .view-comment {
+    padding: 20px;
+    margin: 0 0 10px;
+    background-color: var(--dark-color);
+    border-bottom: 3px solid var(--mid-color);
+}
+.comments .comment-author {
+    color: var(--secondary-color);
+    margin: 0 0 10px;
+    font-size: .95em;
+}
+.comments .comment-author i {
+    font-size: .85em;
+}
+.comments .comment-body {
+    line-height: 1.2;
+}
+
+/* BUTTONS and INPUT */
+.login-register .submit-btn, .comments .comment-form button {
+    padding: 12px;
+    background-color: var(--main-color);
+    color: var(--dark-color);
+    border: none;
+    font-family: 'Dosis', sans-serif;
+    font-size: 1em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 500;
+}
+.login-register .submit-btn:hover, .comments .comment-form button:hover {
+    background-color: var(--secondary-color);
+    color: var(--darkest-color);
+}
+input:focus, textarea:focus {
+    outline: 1px solid var(--secondary-color);
+    border: 1px solid var(--darkest-color);
+}
+
+/* FOOTER */
+footer {
+    width: 100%;
+    align-self: end;
+    padding: 40px;
+    text-align: center;
+}
