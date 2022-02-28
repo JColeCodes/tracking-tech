@@ -1,0 +1,34 @@
+<div class="login-register">
+    <form class="login-form">
+        <div>
+            <label for="email-login">Email:</label>
+            <input type="text" id="email-login" />
+        </div>
+        <div>
+            <label for="password-login">Password:</label>
+            <input type="password" id="password-login" />
+        </div>
+        <div><button type="submit" class="submit-btn">Login</button></div>
+        <div class="sub-text">Don't have an account? <button id="toRegister">Register now!</button></div>
+    </form>
+
+    <form class="register-form hidden">
+        <div>
+            <label for="username-register">Username:</label>
+            <input type="text" id="username-register" />
+        </div>
+        <div>
+            <label for="email-register">Email:</label>
+            <input type="text" id="email-register" />
+        </div>
+        <div>
+            <label for="password-register">Password:</label>
+            <input type="password" id="password-register" />
+        </div>
+        <div><button type="submit" class="submit-btn">Register</button></div>
+        <div class="sub-text">Already have an account? <button id="toLogin">Login now!</button></div>
+    </form>
+    <div class="error-message"></div>
+</div>
+
+<script src="/assets/js/login.js"></script>
