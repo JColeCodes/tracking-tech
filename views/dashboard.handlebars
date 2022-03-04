@@ -1,0 +1,29 @@
+<div class="dash">
+    <div class="dash-title">Create New Post</div>
+    <form class="new-post-form">
+        <input type="text" id="post-title" name="post-title" placeholder="Post Title" />
+        <textarea name="post-content" maxlength="5000" placeholder="Post content"></textarea>
+        <button type="submit">Post!</button>
+        <div id="words-left">5000 characters left</div>
+    </form>
+
+    {{#if posts.length}}
+    <div class="dash-title has-posts">Your Posts</div>
+    <ol>
+        {{#each posts as |post|}}
+        <li>
+            <div class="post-title">{{post.title}}</div>
+            <div class="post-links">
+                <a href="/post/{{post.id}}">View Post</a>
+                <a href="/dashboard/edit/{{post.id}}">Edit Post</a>
+                <button type="button" class="delete-btn" data-id="{{post.id}}">Delete Post</button>
+            </div>
+        </li>
+        {{/each}}
+    </ol>
+    {{/if}}
+    <div class="error"></div>
+</div>
+<script src="/assets/js/dynamic-textarea.js"></script>
+<script src="/assets/js/add-post.js"></script>
+<script src="/assets/js/delete-post.js"></script>

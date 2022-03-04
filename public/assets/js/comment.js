@@ -1,4 +1,11 @@
 const commentForm = document.querySelector('.comment-form');
+const commentList = document.querySelector('#comment-list');
+
+if (commentList.getElementsByTagName('li').length === 0) {
+    const noComment = document.createElement('div');
+    noComment.textContent = 'This post currently has no comments';
+    commentList.append(noComment);
+}
 
 async function commentSubmit(event) {
     event.preventDefault();

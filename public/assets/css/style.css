@@ -4,6 +4,7 @@
     --darkest-color: #1C1E1F;
     --dark-color: #242627;
     --mid-color: #2D3132;
+    --light-color: #6B6E6E;
     --lightest-color: #F7FAFB;
   }
 
@@ -23,6 +24,7 @@ body {
 
 a, a:hover, button, button:hover { transition: all 0.5s ease-in-out; }
 button:hover { cursor: pointer;  }
+button { font-family: 'Rubik', sans-serif; }
 
 a {
     text-decoration: none;
@@ -111,7 +113,7 @@ main {
     flex: 1;
 }
 
-.post .title, .login-register .form-title, .comments .comment-title {
+.post .title, .login-register .form-title, .comments .comment-title, .dash .dash-title {
     font-family: 'Dosis', sans-serif;
     font-size: 1.8em;
     color: var(--main-color);
@@ -212,7 +214,7 @@ main {
     border: 1px solid var(--mid-color);
     margin: 0 0 30px;
 }
-.comments .comment-form textarea {
+.comments .comment-form textarea, .dash textarea, .dash input {
     background-color: var(--darkest-color);
     border: 1px solid var(--mid-color);
     color: var(--lightest-color);
@@ -221,11 +223,12 @@ main {
     font-family: 'Rubik', sans-serif;
     font-size: 1em;
     margin: 0 0 15px;
-    height: 100px;
+    height: 66px;
     resize: none;
 }
 .comments .comment-form textarea::placeholder {
     font-style: italic;
+    color: var(--light-color);
 }
 .comments .view-comment {
     padding: 20px;
@@ -246,13 +249,71 @@ main {
 .comments .comment-body {
     line-height: 1.2;
 }
-.error {
-    margin-top: 10px;
-    color: var(--secondary-color);
+
+/* DASHBOARD */
+.dash {
+    max-width: 1200px; width: 100%;
+    margin: 0 auto;
+}
+.dash textarea, .dash input  {
+    background-color: var(--dark-color);
+}
+.dash textarea {
+    min-height: 150px;
+}
+.dash input {
+    height: auto;
+    font-size: 1.3em;
+}
+.dash input::placeholder, .dash textarea::placeholder {
+    color: var(--light-color);
+}
+.dash #words-left {
+    float: right;
+    color: var(--light-color);
+}
+.dash .alert {
+    color: var(--secondary-color)!important;
+}
+.dash .has-posts {
+    margin-top: 30px;
+    padding: 20px 0 0;
+    border-top: 1px solid var(--mid-color);
+}
+.dash ol li {
+    padding: 10px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    border-top: 1px solid var(--mid-color);
+    border-bottom: 1px solid var(--mid-color);
+}
+.dash ol li:nth-child(odd) {
+    background-color: var(--dark-color);
+}
+.dash ol li .post-title {
+    color: var(--lightest-color);
+    font-family: 'Dosis', sans-serif;
+    font-weight: bold;
+    font-size: 1.2em;
+    margin: 5px;
+    line-height: 1;
+}
+.dash ol li .post-links a, .dash ol li .post-links button {
+    background-color: var(--main-color);
+    color: var(--dark-color);
+    padding: 6px;
+    margin: 2px;
+    font-size: .7em;
+    border: none;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-weight: 700;
 }
 
 /* BUTTONS and INPUT */
-.login-register .submit-btn, .comments .comment-form button {
+.login-register .submit-btn, .comments .comment-form button, .dash .new-post-form button, .dash .edit-post-form button {
     padding: 12px;
     background-color: var(--main-color);
     color: var(--dark-color);
@@ -263,13 +324,21 @@ main {
     letter-spacing: 1px;
     font-weight: 500;
 }
-.login-register .submit-btn:hover, .comments .comment-form button:hover {
+.login-register .submit-btn:hover, .comments .comment-form button:hover, .dash button:hover, .dash ol li .post-links a:hover, .dash ol li .post-links button:hover {
     background-color: var(--secondary-color);
     color: var(--darkest-color);
 }
 input:focus, textarea:focus {
     outline: 1px solid var(--secondary-color);
     border: 1px solid var(--darkest-color);
+}
+.edit-space {
+    margin-top: 40px;
+}
+
+.error, .error-message {
+    margin-top: 10px;
+    color: var(--secondary-color);
 }
 
 /* FOOTER */

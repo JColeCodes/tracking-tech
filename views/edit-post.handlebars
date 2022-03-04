@@ -1,0 +1,29 @@
+<div class="dash">
+    <div class="dash-title">Edit Post</div>
+    <form class="edit-post-form">
+        <input type="text" id="post-title" name="post-title" value="{{post.title}}" />
+        <textarea name="post-content" maxlength="5000">{{post.content}}</textarea>
+        <button type="submit">Save Post</button>
+        <button type="button" class="delete-btn" data-id="{{post.id}}">Delete</button>
+        <div id="words-left">5000 characters left</div>
+    </form>
+    <div class="error"></div>
+</div>
+
+<div class="edit-space"></div>
+
+<div class="comments" id="comments">
+    <div class="comment-title">Add a Comment</div>
+    <form class="comment-form">
+        <textarea name="comment" maxlength="255" placeholder="Add your comment text here"></textarea>
+        <button type="submit">Submit Comment</button>
+    </form>
+
+    <div class="comment-title">View Comments</div>
+    {{> comments post.comments}}
+</div>
+
+<script src="/assets/js/dynamic-textarea.js"></script>
+<script src="/assets/js/edit-post.js"></script>
+<script src="/assets/js/comment.js"></script>
+<script src="/assets/js/delete-post.js"></script>
