@@ -11,7 +11,7 @@ router.get('/', (req, res) => {
 // POST /api/comments
 router.post('/', (req, res) => {
     Comment.create({
-        comment: req.body.comment,
+        comment: req.body.comment_body,
         post_id: req.body.post_id,
         user_id: req.session.user_id
     })
