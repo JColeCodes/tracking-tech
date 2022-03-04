@@ -1,7 +1,8 @@
 <div class="info">
-    Written by <b>{{user.username}}</b> on {{created_at}} 
+    Written by <i class="fa-solid fa-user"></i> <b>{{user.username}}</b> 
+    on <i class="fa-solid fa-calendar-days"></i> {{format_date created_at}} 
     &bull; 
-    <a href="/post/{{id}}#comments">{{comments.length}} comments</a>
+    <a href="/post/{{id}}#comments"><i class="fa-solid fa-comment"></i> {{format_plural 'comment' comments.length}}</a>
 </div>
 <div class="content">
     {{content}}

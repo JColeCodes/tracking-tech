@@ -15,16 +15,25 @@
     <div class="container">
         <header>
             <div class="title">
-                <h1><a href="/">Tracking Tech</a></h1>
-                <h2>A tech blog</h2>
+                <div class="squares">
+                    <div id="square-1"></div><div id="square-2"></div>
+                    <div id="square-3"></div><div id="square-4"></div>
+                </div>
+                <div class="text">
+                    <h1><a href="/">Tracking Tech</a></h1>
+                    <h2>A tech blog</h2>
+                </div>
             </div>
             <nav>
-                <a href="/dashboard">Dashboard</a>
-                {{#if loggedIn}}
-                <button id="logout">Logout</button>
-                {{else}}
-                <a href="/login">Login</a>
-                {{/if}}
+                <ol>
+                    <li><a href="/">Homepage</a></li>
+                    <li><a href="/dashboard">Dashboard</a></li>
+                    {{#if loggedIn}}
+                    <li><button id="logout">Logout</button></li>
+                    {{else}}
+                    <li><a href="/login">Login</a></li>
+                    {{/if}}
+                </ol>
             </nav>
         </header>
         <main>

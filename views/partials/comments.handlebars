@@ -2,7 +2,7 @@
     {{#each this}}
     <li class="view-comment">
         <div class="comment-author">
-            <i class="fa-solid fa-user"></i> {{user.username}} on {{created_at}}
+            <i class="fa-solid fa-comment"></i> {{user.username}} on {{format_date created_at}}, {{format_time created_at}}
         </div>
         <div class="comment-body">
             {{comment}}

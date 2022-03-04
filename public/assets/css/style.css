@@ -50,11 +50,31 @@ header .title {
     padding: 30px 30px 20px;
     margin: 0 auto;
     max-width: 1200px; width: 100%;
+    display: flex;
+    align-items: center;
 }
+header .title .squares {
+    position: relative;
+    width: 44px;
+    height: 44px;
+    transform: rotate(-45deg);
+    margin: 15px;
+    line-height: 0;
+}
+header .title .squares div {
+    border: 1px solid var(--mid-color);
+    width: 22px; height: 22px;
+    display: inline-block;
+}
+header .title .squares #square-1 { background-color: rgba(255,230,50,.75); }
+header .title .squares #square-2 { background-color: rgba(255,230,50,1); }
+header .title .squares #square-3 { background-color: rgba(255,230,50,.25); }
+header .title .squares #square-4 { background-color: rgba(255,230,50,.5); }
 header h1, header h2 {
     font-family: 'Dosis', sans-serif;
     font-weight: normal;
 }
+header .title .text { flex: 1; }
 header h1 {
     font-size: 2.8em;
 }
@@ -67,7 +87,12 @@ header nav {
     padding: 15px;
     text-align: right;
 }
-header nav a, header nav button {
+header nav ol {
+    max-width: 1200px; width: 100%;
+    margin: 0 auto;
+}
+header nav ol li {
+    display: inline-block;
     margin: 0 10px;
 }
 header nav button {
@@ -106,7 +131,8 @@ main {
 }
 .post .info {
     background-color: var(--mid-color);
-    padding: 15px;
+    padding: 12px 15px;
+    line-height: 1.5;
 }
 .post .content {
     background-color: var(--dark-color);
@@ -176,7 +202,9 @@ main {
 /* COMMENTS */
 .comments {
     max-width: 1200px; width: 100%;
-    margin: 0 auto;
+    margin: -10px auto;
+    padding: 20px 0 0;
+    border-top: 1px solid var(--mid-color);
 }
 .comments .comment-form {
     padding: 20px;
@@ -204,6 +232,8 @@ main {
     margin: 0 0 10px;
     background-color: var(--dark-color);
     border-bottom: 3px solid var(--mid-color);
+    border-radius: 10px;
+    font-size: 15px;
 }
 .comments .comment-author {
     color: var(--secondary-color);
