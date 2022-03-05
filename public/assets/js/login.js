@@ -20,6 +20,7 @@ async function register(event) {
             errorMessage.textContent = 'There has been an error in registering. Please make sure your email is valid and your password is 5 or more characters in length.';
         } else {
             errorMessage.textContent = '';
+            document.location.replace('/dashboard');
         }
     }
 }

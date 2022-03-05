@@ -15,8 +15,9 @@ const PORT = process.env.PORT || 3001;
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const sess = {
     secret: process.env.SECRET,
-    cookie: {},
-    resave: false,
+    cookie: { maxAge: 60 * 60 * 1000 }, // Logs out user after 1 hour of inactivity
+    resave: true,
+    rolling: true,
     saveUninitialized: true,
     store: new SequelizeStore({
         db: sequelize

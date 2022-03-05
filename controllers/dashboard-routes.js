@@ -1,8 +1,9 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
 const { User, Post, Comment } = require('../models');
+const withAuth = require('../utils/auth');
 
-router.get('/', (req, res) => {
+router.get('/', withAuth, (req, res) => {
     Post.findAll({
         where: {
             user_id: req.session.user_id
@@ -31,7 +32,7 @@ router.get('/', (req, res) => {
         .catch(err => res.status(500).json(err));
 });
 
-router.get('/edit/:id', (req, res) => {
+router.get('/edit/:id', withAuth, (req, res) => {
     Post.findByPk(req.params.id, {
         attributes: ['id', 'title', 'content', 'created_at'],
         include: [
@@ -40,12 +41,12 @@ router.get('/edit/:id', (req, res) => {
                 attributes: ['id', 'comment', 'post_id', 'user_id', 'created_at'],
                 include: {
                     model: User,
-                    attributes: ['username']
+                    attributes: ['username', 'email']
                 }
             },
             {
                 model: User,
-                attributes: ['username']
+                attributes: ['username', 'email']
             }
         ]
     })
@@ -55,7 +56,7 @@ router.get('/edit/:id', (req, res) => {
                 return;
             }
             const post = dbPostData.get({ plain: true });
-            if (post.user.username !== req.session.username) {
+            if (post.user.email !== req.session.email) {
                 res.redirect('/dashboard');
             }
             res.render('edit-post', { post, loggedIn: true });
